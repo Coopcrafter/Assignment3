@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3 Color - Logan</title>
+</head>
+<body>
+    Sizes <input id="color" type="number" name="sizes" placeholder="5" list="gridsize">
+    <br>
+    <datalist id="gridsize">
+            <option value="3" id="3"></option>
+            <option value="4" id="4"></option>
+            <option value="5" id="5"></option>
+            <option value="10" id="10"></option>
+            <option value="20" id="20"></option>
+    </datalist>
+    <br>
+    <span id="spanresult"></span>
+    <button ondlbclick="myFunction()" onclick="generate_table()">Color Total</button>
+    <br>
+    <p id="demo"></p>
+    <br>
+    <script>
+        function myFunction(){
+            var x = document.getElementById("color");
+            document.getElementById("demo").innerHTML = "You have choosen a size of: " +x.value;
+            }
+    </script>
+    <script>
+        function generate_table() {
+            //removes other table
+            var tables = document.getElementsByTagName("TABLE");
+            for (var i=tables.length-1; i>=0;i-=1)
+                if (tables[i]) tables[i].parentNode.removeChild(tables[i]);
+            //makes body
+            var body = document.getElementsByTagName("body")[0];
+            var x = document.getElementById("color").value;
+            // creates a <table> element and a <tbody> element
+            var tbl = document.createElement("table");
+            var tblBody = document.createElement("tbody");
+            // creating all cells
+            for (var i = 0; i < x; i++) {
+                var row = document.createElement("tr");
+                for (var j = 0; j < x; j++) {
+                var cell = document.createElement("td");
+                randomColor = Math.floor(Math.random()*16777215).toString(16);
+                cell.bgColor = randomColor;
+                var cellText = document.createTextNode("#"+randomColor.toString());
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+                }
+                tblBody.appendChild(row);
+            }
+            tbl.appendChild(tblBody);
+            body.appendChild(tbl);
+        }
+    </script>
+    <table id="myTable">
+        <tbody>
+            <tr>
+                <td style="background-color: #000000;">TEMP<br /><span style= "color:#ffffff;"#000000></td>
+                <td style="background-color: #000000;">TEMP<br /><span style= "color:#ffffff;"#000000></td>
+                <td style="background-color: #000000;">TEMP<br /><span style= "color:#ffffff;"#000000></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</body>
+</html>

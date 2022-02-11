@@ -1,0 +1,18 @@
+{
+  "name": "templateexample",
+  "version": "1.0.0",
+  "description": "\"Example of HBS Template Engine\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Logan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "nodemod": "^3.0.0",
+    "save": "^2.4.0"
+  }
+}
